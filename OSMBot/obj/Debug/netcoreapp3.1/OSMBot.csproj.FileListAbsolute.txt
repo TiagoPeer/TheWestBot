@@ -1,0 +1,32 @@
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.exe
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.csprojAssemblyReference.cache
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.AssemblyInfoInputs.cache
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.AssemblyInfo.cs
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.deps.json
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.runtimeconfig.json
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.runtimeconfig.dev.json
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.dll
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.pdb
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\WebDriver.dll
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.csproj.CopyComplete
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.dll
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.pdb
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.genruntimeconfig.cache
+C:\Users\Utilizador\source\repos\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.csproj.CoreCompileInputs.cache
+D:\Nova pasta (2)\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.exe
+D:\Nova pasta (2)\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.deps.json
+D:\Nova pasta (2)\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.runtimeconfig.json
+D:\Nova pasta (2)\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.runtimeconfig.dev.json
+D:\Nova pasta (2)\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.dll
+D:\Nova pasta (2)\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\OSMBot.pdb
+D:\Nova pasta (2)\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Nova pasta (2)\OSMBot\OSMBot\bin\Debug\netcoreapp3.1\WebDriver.dll
+D:\Nova pasta (2)\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.csprojAssemblyReference.cache
+D:\Nova pasta (2)\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.AssemblyInfoInputs.cache
+D:\Nova pasta (2)\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.AssemblyInfo.cs
+D:\Nova pasta (2)\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.csproj.CoreCompileInputs.cache
+D:\Nova pasta (2)\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.csproj.CopyComplete
+D:\Nova pasta (2)\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.dll
+D:\Nova pasta (2)\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.pdb
+D:\Nova pasta (2)\OSMBot\OSMBot\obj\Debug\netcoreapp3.1\OSMBot.genruntimeconfig.cache
