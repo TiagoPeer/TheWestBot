@@ -30,3 +30,19 @@ C:\Users\Utilizador\Downloads\Nova pasta (2)\TheWestBot\OSMBot\obj\Debug\netcore
 C:\Users\Utilizador\Downloads\Nova pasta (2)\TheWestBot\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.dll
 C:\Users\Utilizador\Downloads\Nova pasta (2)\TheWestBot\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.pdb
 C:\Users\Utilizador\Downloads\Nova pasta (2)\TheWestBot\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.genruntimeconfig.cache
+D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\TheWestBot.exe
+D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\TheWestBot.deps.json
+D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\TheWestBot.runtimeconfig.json
+D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\TheWestBot.runtimeconfig.dev.json
+D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\TheWestBot.dll
+D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\TheWestBot.pdb
+D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\WebDriver.dll
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.csprojAssemblyReference.cache
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.AssemblyInfoInputs.cache
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.AssemblyInfo.cs
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.csproj.CoreCompileInputs.cache
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.csproj.CopyComplete
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.dll
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.pdb
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.genruntimeconfig.cache

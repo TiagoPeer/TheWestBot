@@ -5260,19 +5260,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Utilizador\\.nuget\\packages\\": {}
+    "C:\\Users\\tiago\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Utilizador\\Downloads\\Nova pasta (2)\\TheWestBot\\OSMBot\\TheWestBot.csproj",
+      "projectUniqueName": "D:\\Bots\\TheWest\\OSMBot\\TheWestBot.csproj",
       "projectName": "TheWestBot",
-      "projectPath": "C:\\Users\\Utilizador\\Downloads\\Nova pasta (2)\\TheWestBot\\OSMBot\\TheWestBot.csproj",
-      "packagesPath": "C:\\Users\\Utilizador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Utilizador\\Downloads\\Nova pasta (2)\\TheWestBot\\OSMBot\\obj\\",
+      "projectPath": "D:\\Bots\\TheWest\\OSMBot\\TheWestBot.csproj",
+      "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
+      "outputPath": "D:\\Bots\\TheWest\\OSMBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Utilizador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5322,7 +5322,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

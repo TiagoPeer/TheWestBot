@@ -20,8 +20,8 @@ namespace TheWestBot
             ChromeOptions options = new ChromeOptions();
             //options.AddArgument("--headless");
 
-            options.AddExtension(@"C:\Users\Utilizador\Downloads\Nova pasta (2)\TheWestBot\OSMBot\bin\Debug\netcoreapp3.1\extension_4_11_0_0.crx");
-            options.AddExtension(@"C:\Users\Utilizador\Downloads\Nova pasta (2)\TheWestBot\OSMBot\bin\Debug\netcoreapp3.1\extension_5_3_23_0.crx");
+            options.AddExtension(@"D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_4_11_0_0.crx");
+            options.AddExtension(@"D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_5_3_23_0.crx");
             options.AddArgument("--window-size=1920,1080");
             options.AddArgument("--log-level=3");
             driver = new ChromeDriver(options);
