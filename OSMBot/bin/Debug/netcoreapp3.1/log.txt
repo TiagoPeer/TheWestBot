@@ -1,0 +1,9 @@
+Resposta WebService: 20/10/2021 13:22:57
+Erro 20/10/2021 13:24:54:
+OpenQA.Selenium.JavaScriptException: javascript error: Unexpected identifier
+  (Session info: chrome=95.0.4638.54)
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.ExecuteScriptCommand(String script, String commandName, Object[] args)
+   at OpenQA.Selenium.WebDriver.ExecuteScript(String script, Object[] args)
+   at TheWestBot.Program.<Main>g__login|1_0(<>c__DisplayClass1_0& ) in C:\Bots\TheWest\OSMBot\Program.cs:line 133

@@ -1,11 +1,10 @@
-﻿using OpenQA.Selenium;
+﻿using Newtonsoft.Json;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
-
 
 namespace TheWestBot
 {
@@ -28,16 +27,15 @@ namespace TheWestBot
         {
 
             List<Job> jobs = new List<Job>();
-            List<int> acceptedJobs = new List<int>();
-            acceptedJobs.Add(103);
+            List<int> acceptedJobs = new List<int>() { 144, 120, 134, 113, 77, 119, 138, 118, 103, 57, 106, 72, 69, 80, 53, 126, 96, 84, 62, 59, 58, 52, 111, 107, 102, 109, 95, 71, 79, 63, 112, 101, 97, 83, 66, 48, 46, 45, 43, 90, 86, 51, 44, 98, 82, 64, 61, 105, 85, 78, 75 };
 
             var random = new Random();
 
             ChromeOptions options = new ChromeOptions();
             //options.AddArgument("--headless");
 
-            options.AddExtension(@"D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_4_11_0_0.crx");
-            options.AddExtension(@"D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_5_3_23_0.crx");
+            options.AddExtension(@"C:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_4_11_0_0.crx");
+            options.AddExtension(@"C:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_5_3_23_0.crx");
             options.AddArgument("--window-size=1920,1080");
             options.AddArgument("--log-level=3");
             driver = new ChromeDriver(options);
@@ -121,110 +119,26 @@ namespace TheWestBot
                         }
                     }
 
-                    foreach (var job in jobs)
+                    foreach (var job in jobs.OrderBy(j => j.Experience))
                     {
-                        js.ExecuteScript('"' + job.CenterMap + '"');
-                        js.ExecuteScript("javascript:Map.center(25237,15126);");
+                        js.ExecuteScript(job.CenterMap);
+                        //js.ExecuteScript("javascript:Map.center(25237,15126);");
                         System.Threading.Thread.Sleep(random.Next(1500, 2000));
-                        //string openJob = "document.getElementsByClassName(\"posx-25237 posy-15126\")[0].click()";
-                        //Console.WriteLine(openJob);
-                        js.ExecuteScript("document.getElementsByClassName(\"posx-25237 posy-15126\")[0].click()");
+                        js.ExecuteScript($"document.getElementsByClassName(\"posx-{job.PosX} posy-{job.PosY}\")[0].click()");
                         System.Threading.Thread.Sleep(random.Next(1000, 1500));
                         while (job.TimesDone < 25)
                         {
-                            js.ExecuteScript(@"""document.getElementsByClassName(""job-103"")[0].getElementsByClassName(""instantwork-short"")[0].click()""");
+                            js.ExecuteScript($"document.getElementsByClassName(\"job-{job.Id}\")[0].getElementsByClassName(\"instantwork-short\")[0].click()");
                             job.TimesDone++;
-                            System.Threading.Thread.Sleep(random.Next(15000, 16000));
+                            System.Threading.Thread.Sleep(random.Next(15000, 17000));
                         }
                     }
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("Erro, ver ficheiro Log");
-                    ErrorLogging(e);
+                    System.IO.File.AppendAllTextAsync("log.txt", $"Erro {DateTime.Now}:{Environment.NewLine}{e.ToString()}");
                 }
-            }
-
-            //void verAnuncio()
-            //{
-            //    try
-            //    {
-            //        Console.WriteLine("Abrindo Anuncios");
-            //        Console.WriteLine("--------------------------");
-            //        driver.Navigate().GoToUrl("https://en.onlinesoccermanager.com/Career");
-            //        System.Threading.Thread.Sleep(random.Next(1000, 3000));
-            //        driver.FindElement(By.XPath("//div[@id='balances']/div/div[3]")).Click();
-            //        System.Threading.Thread.Sleep(random.Next(3000, 5000));
-            //        driver.FindElement(By.XPath("//div[@id='product-category-free']/div[2]/div/div/div/div/div")).Click();
-            //        System.Threading.Thread.Sleep(random.Next(3000, 5000));
-            //        try
-            //        {
-            //            var caixaSemAnuncios = driver.FindElement(By.XPath("//div[@id='modal-dialog-alert']/div[4]/div/div/div/div[2]/div/div/p"));
-            //            var btnSemAnuncios = driver.FindElement(By.XPath("//div[@type='button']"));
-
-            //            btnSemAnuncios.Click();
-            //            Console.WriteLine("Sem mais anuncios para ver");
-            //            Console.WriteLine("--------------------------");
-            //            Console.WriteLine("Esperando 1 hora");
-            //            Console.WriteLine("--------------------------");
-            //            Console.WriteLine("Proximo premio disponivel as : {0}", DateTime.Now.AddHours(1));
-
-            //            for (int i = 6; i >= 1; i--)
-            //            {
-            //                var tempoEspera = 600000;
-            //                Console.WriteLine("Esperando {0} minutos as {1}", i * 10, DateTime.Now);
-            //                System.Threading.Thread.Sleep(tempoEspera);
-            //            }
-            //            verAnuncio();
-            //        }
-            //        catch
-            //        {
-            //            Console.WriteLine("A ver anuncio");
-            //            Console.WriteLine("--------------------------");
-            //            System.Threading.Thread.Sleep(1000 * 40);
-            //            Console.WriteLine("A ver proximo Anuncio");
-            //            Console.WriteLine("--------------------------");
-            //            verAnuncio();
-            //        }
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        Console.WriteLine("Erro, ver ficheiro Log");
-            //        ErrorLogging(e);
-            //        login();
-            //    }
-            //}
-
-            //void verQuantidadeDeMoedas()
-            //{
-            //    try
-            //    {
-            //        System.Threading.Thread.Sleep(random.Next(2500, 3500));
-            //        var moedas = driver.FindElement(By.XPath("//div[@id='balances']/div/div[2]/span")).Text;
-            //        Console.WriteLine("Quantidade de moedas : " + moedas);
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        Console.WriteLine("Impossivel ver as moedas");
-            //        ErrorLogging(e);
-            //    }
-            //}
-        }
-        public static void ErrorLogging(Exception ex)
-        {
-            string strPath = @"C:\Users\tiago\Desktop\TheWestBotLog.txt";
-            if (!File.Exists(strPath))
-            {
-                File.Create(strPath).Dispose();
-            }
-            using (StreamWriter sw = File.AppendText(strPath))
-            {
-                Console.WriteLine("Erro reportado");
-                sw.WriteLine("=============Error Logging ===========");
-                sw.WriteLine("===========Start============= " + DateTime.Now);
-                sw.WriteLine("Error Message: " + ex.Message);
-                sw.WriteLine("Stack Trace: " + ex.StackTrace);
-                sw.WriteLine("===========End============= " + DateTime.Now);
             }
         }
 
