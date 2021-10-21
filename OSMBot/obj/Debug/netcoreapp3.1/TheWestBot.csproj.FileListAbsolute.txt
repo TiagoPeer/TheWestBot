@@ -38,11 +38,9 @@ D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\TheWestBot.dll
 D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\TheWestBot.pdb
 D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\WebDriver.dll
-D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.csprojAssemblyReference.cache
 D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.AssemblyInfoInputs.cache
 D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.AssemblyInfo.cs
 D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.csproj.CoreCompileInputs.cache
-D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.csproj.CopyComplete
 D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.dll
 D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.pdb
 D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.genruntimeconfig.cache
@@ -62,3 +60,5 @@ C:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.csproj.CoreCompileInpu
 C:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.dll
 C:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.pdb
 C:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.genruntimeconfig.cache
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.csproj.AssemblyReference.cache
+D:\Bots\TheWest\OSMBot\obj\Debug\netcoreapp3.1\TheWestBot.GeneratedMSBuildEditorConfig.editorconfig
