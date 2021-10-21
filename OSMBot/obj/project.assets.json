@@ -113,11 +113,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Bots\\TheWest\\OSMBot\\TheWestBot.csproj",
+      "projectUniqueName": "D:\\Bots\\TheWest2\\TheWestBot\\OSMBot\\TheWestBot.csproj",
       "projectName": "TheWestBot",
-      "projectPath": "D:\\Bots\\TheWest\\OSMBot\\TheWestBot.csproj",
+      "projectPath": "D:\\Bots\\TheWest2\\TheWestBot\\OSMBot\\TheWestBot.csproj",
       "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
-      "outputPath": "D:\\Bots\\TheWest\\OSMBot\\obj\\",
+      "outputPath": "D:\\Bots\\TheWest2\\TheWestBot\\OSMBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",

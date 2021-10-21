@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Mi3DIeH4oHG0F149T0Emr32lmLmUvLwrECuQqO35DBTchNAVm3OSG+SWjUPwuKEewy5QWhCLTjyhd/EGkPHdaA==",
+  "dgSpecHash": "AeKm5kAIlIVGmMEpY2djXLwhbCrJi26L7kndSje3ZOZcsfui7l8EurlIjtE6lVvPh6KezUweZTgLTC9FFVqplA==",
   "success": true,
-  "projectFilePath": "D:\\Bots\\TheWest\\OSMBot\\TheWestBot.csproj",
+  "projectFilePath": "D:\\Bots\\TheWest2\\TheWestBot\\OSMBot\\TheWestBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tiago\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\tiago\\.nuget\\packages\\selenium.webdriver\\4.0.0\\selenium.webdriver.4.0.0.nupkg.sha512",
