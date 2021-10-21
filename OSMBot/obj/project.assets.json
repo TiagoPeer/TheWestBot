@@ -108,19 +108,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tiago\\.nuget\\packages\\": {}
+    "C:\\Users\\Utilizador\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Bots\\TheWest2\\TheWestBot\\OSMBot\\TheWestBot.csproj",
+      "projectUniqueName": "C:\\Bots\\TheWest\\OSMBot\\TheWestBot.csproj",
       "projectName": "TheWestBot",
-      "projectPath": "D:\\Bots\\TheWest2\\TheWestBot\\OSMBot\\TheWestBot.csproj",
-      "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
-      "outputPath": "D:\\Bots\\TheWest2\\TheWestBot\\OSMBot\\obj\\",
+      "projectPath": "C:\\Bots\\TheWest\\OSMBot\\TheWestBot.csproj",
+      "packagesPath": "C:\\Users\\Utilizador\\.nuget\\packages\\",
+      "outputPath": "C:\\Bots\\TheWest\\OSMBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Utilizador\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
