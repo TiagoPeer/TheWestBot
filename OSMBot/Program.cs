@@ -197,13 +197,14 @@ namespace TheWestBot
 
         public static Job GetNextJob(List<Job> jobs)
         {
-            foreach (var job in jobs.Where(j => j.TimesDone <= 25))
+            Console.WriteLine(JsonConvert.SerializeObject(jobs, Formatting.Indented));
+            foreach (var job in jobs.Where(j => j.TimesDone < 25))
             {
                 var distance = double.Parse(js.ExecuteScript($"return Character.calcWayTo({job.PosX}, {job.PosY})").ToString());
-                Console.WriteLine("distancia : " + distance);
                 job.Distance = distance;
             }
-            return jobs.OrderBy(j => j.Distance).FirstOrDefault();
+            Console.WriteLine(JsonConvert.SerializeObject(jobs, Formatting.Indented));
+            return jobs.Where(j => j.TimesDone < 25).OrderBy(j => j.Distance).FirstOrDefault();
         }
 
         public static int NumberOfTasksInQeue()
@@ -231,6 +232,8 @@ namespace TheWestBot
             {
                 System.Threading.Thread.Sleep(120000);
             }
+
+            js.ExecuteScript("TaskQueue.cancelAll()");
         }
 
         public static int GetPlayerEnergyPercentage()
