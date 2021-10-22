@@ -38,8 +38,8 @@ namespace TheWestBot
             ChromeOptions options = new ChromeOptions();
             //options.AddArgument("--headless");
 
-            options.AddExtension(@"C:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_4_11_0_0.crx");
-            options.AddExtension(@"C:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_5_3_23_0.crx");
+            options.AddExtension(@"D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_4_11_0_0.crx");
+            options.AddExtension(@"D:\Bots\TheWest\OSMBot\bin\Debug\netcoreapp3.1\extension_5_3_23_0.crx");
             options.AddArgument("--window-size=1920,1080");
             options.AddArgument("--log-level=3");
             driver = new ChromeDriver(options);
@@ -91,7 +91,12 @@ namespace TheWestBot
                         Console.WriteLine(nextJob.Name);
                         Console.WriteLine(nextJob.Distance);
                         Console.WriteLine(nextJob.Experience);
-                        Console.ReadLine();
+                        //Equipar set velocidade
+
+                        //Ir para o trabalho
+
+                        //Equipar set XP
+                        js.ExecuteScript("EquipManager.switchEquip(950)");
                         while (nextJob.TimesDone < 25)
                         {
                             if (GetPlayerEnergyPercentage() > 0)
@@ -100,11 +105,15 @@ namespace TheWestBot
                                 {
                                     js.ExecuteScript($"TaskQueue.add(new TaskJob({nextJob.Id}, {nextJob.PosX}, {nextJob.PosY}, 15))");
                                     nextJob.TimesDone++;
-                                    System.Threading.Thread.Sleep(random.Next(15000, 17000));
+                                    System.Threading.Thread.Sleep(random.Next(15000, 15500));
                                 }
                             }
                             else
                             {
+                                while(NumberOfTasksInQeue() > 0)
+                                {
+                                    System.Threading.Thread.Sleep(random.Next(5000, 6000));
+                                }
                                 GoSleep();
                             }
                         }
@@ -197,13 +206,11 @@ namespace TheWestBot
 
         public static Job GetNextJob(List<Job> jobs)
         {
-            Console.WriteLine(JsonConvert.SerializeObject(jobs, Formatting.Indented));
             foreach (var job in jobs.Where(j => j.TimesDone < 25))
             {
                 var distance = double.Parse(js.ExecuteScript($"return Character.calcWayTo({job.PosX}, {job.PosY})").ToString());
                 job.Distance = distance;
             }
-            Console.WriteLine(JsonConvert.SerializeObject(jobs, Formatting.Indented));
             return jobs.Where(j => j.TimesDone < 25).OrderBy(j => j.Distance).FirstOrDefault();
         }
 
@@ -227,12 +234,18 @@ namespace TheWestBot
 
         public static void GoSleep()
         {
-            driver.FindElement(By.ClassName("city")).Click();
+            //CityId = 2568
+            //Character.homeTown - Info sobre a cidade - obter CityId para usar no Hotel
+            //HotelWindow.open(cityId) - abrir janela hotel
+            //HotelWindow.start("luxurious_apartment")
+            js.ExecuteScript("EquipManager.switchEquip(838)");
+            js.ExecuteScript("HotelWindow.open(2568)");
+            js.ExecuteScript("HotelWindow.start(\"luxurious_apartment\")");
             while (GetPlayerEnergyPercentage() < 95)
             {
                 System.Threading.Thread.Sleep(120000);
             }
-
+            js.ExecuteScript("EquipManager.switchEquip(950)");
             js.ExecuteScript("TaskQueue.cancelAll()");
         }
 

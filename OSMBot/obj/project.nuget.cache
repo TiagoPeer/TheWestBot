@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Qm8yejzsFiniQ4usUk0Np8L+WvS6JS6obgGavNPIfive8JxG9P9ZBK/UdhrDKh8WHlruziUUt7C894xYz81YYg==",
+  "dgSpecHash": "AeKm5kAIlIVGmMEpY2djXLwhbCrJi26L7kndSje3ZOZcsfui7l8EurlIjtE6lVvPh6KezUweZTgLTC9FFVqplA==",
   "success": true,
-  "projectFilePath": "C:\\Bots\\TheWest\\OSMBot\\TheWestBot.csproj",
+  "projectFilePath": "D:\\Bots\\TheWest2\\TheWestBot\\OSMBot\\TheWestBot.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Utilizador\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\Utilizador\\.nuget\\packages\\selenium.webdriver\\4.0.0\\selenium.webdriver.4.0.0.nupkg.sha512",
-    "C:\\Users\\Utilizador\\.nuget\\packages\\selenium.webdriver.chromedriver\\95.0.4638.1700-beta\\selenium.webdriver.chromedriver.95.0.4638.1700-beta.nupkg.sha512"
+    "C:\\Users\\tiago\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\tiago\\.nuget\\packages\\selenium.webdriver\\4.0.0\\selenium.webdriver.4.0.0.nupkg.sha512",
+    "C:\\Users\\tiago\\.nuget\\packages\\selenium.webdriver.chromedriver\\95.0.4638.1700-beta\\selenium.webdriver.chromedriver.95.0.4638.1700-beta.nupkg.sha512"
   ],
   "logs": []
 }
