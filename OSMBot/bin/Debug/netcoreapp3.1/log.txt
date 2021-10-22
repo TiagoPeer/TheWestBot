@@ -22,4 +22,73 @@ OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver ser
    at OpenQA.Selenium.WebDriver.InternalExecute(String driverCommandToExecute, Dictionary`2 parameters)
    at OpenQA.Selenium.WebElement.Execute(String commandToExecute, Dictionary`2 parameters)
    at OpenQA.Selenium.WebElement.Click()
-   at TheWestBot.Program.<Main>g__login|3_0(<>c__DisplayClass3_0& ) in C:\Bots\TheWest\OSMBot\Program.cs:line 74
+   at TheWestBot.Program.<Main>g__login|3_0(<>c__DisplayClass3_0& ) in C:\Bots\TheWest\OSMBot\Program.cs:line 74Erro 21/10/2021 20:51:15:
+OpenQA.Selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='popup-container']/div[3]/div/ul/li/span"}
+  (Session info: chrome=95.0.4638.54)
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.By.<.ctor>b__11_0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.WebDriver.FindElement(By by)
+   at TheWestBot.Program.GetFeatureJobs() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 134
+   at TheWestBot.Program.<Main>g__login|3_0(<>c__DisplayClass3_0& ) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 85Erro 21/10/2021 22:55:37:
+OpenQA.Selenium.WebDriverException: disconnected: received Inspector.detached event
+  (Session info: chrome=95.0.4638.54)
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.By.<.ctor>b__11_0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.WebDriver.FindElement(By by)
+   at TheWestBot.Program.IsElementPresent(By by)
+   at TheWestBot.Program.NumberOfTasksInQeue()
+   at TheWestBot.Program.<Main>g__login|3_0(<>c__DisplayClass3_0& )Erro 22/10/2021 06:46:49:
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:59757/session/bc179f20863072c05835a9673e15e5e6/element/2cafb3ca-702e-408f-93db-d450a8e8d696/click timed out after 60 seconds.
+ ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.IO.IOException: Unable to read data from the transport connection: A operação de E/S foi cancelada devido a uma saída do módulo ou a um pedido da aplicação..
+ ---> System.Net.Sockets.SocketException (995): A operação de E/S foi cancelada devido a uma saída do módulo ou a um pedido da aplicação.
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.MakeHttpRequest(HttpRequestInfo requestInfo)
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   --- End of inner exception stack trace ---
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.InternalExecute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebElement.Click()
+   at TheWestBot.Program.<Main>g__login|3_0(<>c__DisplayClass3_0& ) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 74Erro 22/10/2021 06:49:38:
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:64675/session/249454283d5f018da5c4ccf1d4caa9fc/element/f4cf7b35-07f5-4770-b236-8a012e219ab0/click timed out after 60 seconds.
+ ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.IO.IOException: Unable to read data from the transport connection: A operação de E/S foi cancelada devido a uma saída do módulo ou a um pedido da aplicação..
+ ---> System.Net.Sockets.SocketException (995): A operação de E/S foi cancelada devido a uma saída do módulo ou a um pedido da aplicação.
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.MakeHttpRequest(HttpRequestInfo requestInfo)
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   --- End of inner exception stack trace ---
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.InternalExecute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebElement.Click()
+   at TheWestBot.Program.<Main>g__login|3_0(<>c__DisplayClass3_0& ) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 74
