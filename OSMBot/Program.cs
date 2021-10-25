@@ -9,6 +9,11 @@ using System.Linq;
 namespace TheWestBot
 {
 
+    class Player
+    {
+        public string CityId { get; set; }
+    }
+
     class Job
     {
         public int Id { get; set; }
@@ -21,6 +26,8 @@ namespace TheWestBot
         public double Distance { get; set; }
         public int Danger { get; set; }
         public string Name { get; set; }
+        public string GroupId { get; set; }
+        public string OpenInfoWindow { get; set; }
 
     }
     class Program
@@ -28,6 +35,7 @@ namespace TheWestBot
         static IWebDriver driver;
         static IJavaScriptExecutor js;
         static Random random;
+        static Player player;
         static List<Job> jobs;
         static int maxTimesToDoJob = 50;
         static int maxDanger = 1;
@@ -36,6 +44,8 @@ namespace TheWestBot
         {
 
             jobs = new List<Job>();
+
+            player = new Player();
 
             random = new Random();
 
@@ -97,6 +107,7 @@ namespace TheWestBot
                 {
                     DoJob(nextJob);
                     //Check atual job and nearby before go to next job
+                    //CheckAtualJob(nextJob);
                     nextJob = GetNextJob(jobs);
                 }
                 catch (Exception e)
@@ -181,6 +192,8 @@ namespace TheWestBot
             }
 
             Console.WriteLine("Acabou Loading");
+
+            player.CityId = js.ExecuteScript("return Character.homeTown.town_id").ToString();
         }
 
         public static void UpdateJobs()
@@ -214,6 +227,36 @@ namespace TheWestBot
 
                 jobInfoWindow.FindElement(By.ClassName("tw2gui_window_buttons_close")).Click();
             }
+        }
+
+        public static List<Job> CheckAtualJob(Job atualJob)
+        {
+            var nearbyJobs = new List<Job>();
+
+            var experience = "0";
+            var danger = 0;
+            var canDo = false;
+
+            js.ExecuteScript(atualJob.OpenInfoWindow);
+
+            var jobInfoWindow = driver.FindElement(By.ClassName($"wjob-{atualJob.Id}"));
+            while (!IsElementPresent(By.ClassName("job_rightSide")))
+            {
+                System.Threading.Thread.Sleep(random.Next(100, 200));
+            }
+            var rightSideInfoWindow = jobInfoWindow.FindElement(By.ClassName("job_rightSide"));
+
+
+            if (IsElementPresent(By.ClassName("job_jobtimes")))
+            {
+                danger = jobInfoWindow.FindElement(By.ClassName("job_dangerbox")).FindElement(By.ClassName("tw2gui_progresscircle")).FindElements(By.TagName("img")).Count;
+                experience = jobInfoWindow.FindElement(By.ClassName("job_durationbar_short")).FindElement(By.ClassName("job_value_experience")).Text;
+                canDo = true;
+            }
+
+            jobInfoWindow.FindElement(By.ClassName("tw2gui_window_buttons_close")).Click();
+
+            return nearbyJobs;
         }
 
         public static List<Job> GetFeatureJobs()
@@ -285,6 +328,8 @@ namespace TheWestBot
                 job.Danger = danger;
                 job.Name = js.ExecuteScript($"return JobList.getJobById({jobNumber}).name").ToString();
                 job.Distance = 0;
+                job.GroupId = js.ExecuteScript($"JobList.getJobById({jobNumber}).groupid;").ToString();
+                job.OpenInfoWindow = JsAttribute;
 
                 if (job.Experience >= minExperience && job.Danger <= maxDanger)
                 {
@@ -332,21 +377,16 @@ namespace TheWestBot
 
         public static void GoSleep()
         {
-            //CityId = 2568
-            //Character.homeTown - Info sobre a cidade - obter CityId para usar no Hotel
-            //HotelWindow.open(cityId) - abrir janela hotel
-            //HotelWindow.start("luxurious_apartment")
-
             //var rooms = ['cubby', 'bedroom', 'hotel_room', 'apartment', 'luxurious_apartment'];
 
-            js.ExecuteScript("EquipManager.switchEquip(838)");
-            js.ExecuteScript("HotelWindow.open(3158)");
-            js.ExecuteScript("HotelWindow.start(\"cubby\")");
+            //js.ExecuteScript("EquipManager.switchEquip(838)");
+            js.ExecuteScript($"HotelWindow.open({player.CityId})");
+            js.ExecuteScript("HotelWindow.start(\"luxurious_apartment\")");
             while (GetPlayerEnergyPercentage() < 95)
             {
                 System.Threading.Thread.Sleep(120000);
             }
-            js.ExecuteScript("EquipManager.switchEquip(950)");
+            //js.ExecuteScript("EquipManager.switchEquip(950)");
             js.ExecuteScript("TaskQueue.cancelAll()");
         }
 
@@ -382,3 +422,17 @@ namespace TheWestBot
         }
     }
 }
+
+
+/*
+ 
+ Ajax.remoteCall('work', 'get_nearest_job', {
+            job_id: 12
+        }, function(json) {
+            if (json.error)
+                return new UserMessage(json.msg).show();
+            var callb = JobWindow.startJob(12, json.x, json.y, JobsModel.Beans[12].get('duration', JobsModel.basetype));
+            callb($('#jobinfobox_' + 12 + ' div.jobinfobox_icon.job', JobsWindow.DOM));
+        });
+ 
+ */
