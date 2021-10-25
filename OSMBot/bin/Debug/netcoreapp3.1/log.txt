@@ -91,4 +91,91 @@ OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver ser
    at OpenQA.Selenium.WebDriver.InternalExecute(String driverCommandToExecute, Dictionary`2 parameters)
    at OpenQA.Selenium.WebElement.Execute(String commandToExecute, Dictionary`2 parameters)
    at OpenQA.Selenium.WebElement.Click()
-   at TheWestBot.Program.<Main>g__login|3_0(<>c__DisplayClass3_0& ) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 74
+   at TheWestBot.Program.<Main>g__login|3_0(<>c__DisplayClass3_0& ) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 74Erro 23/10/2021 02:12:40:
+OpenQA.Selenium.WebDriverException: disconnected: Unable to receive message from renderer
+  (Session info: chrome=95.0.4638.54)
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.By.<.ctor>b__11_0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.WebDriver.FindElement(By by)
+   at TheWestBot.Program.IsElementPresent(By by) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 364
+   at TheWestBot.Program.NumberOfTasksInQeue() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 310
+   at TheWestBot.Program.DoJob(Job job) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 133
+   at TheWestBot.Program.FarmExp() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 101
+   at TheWestBot.Program.Menu() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 75
+   at TheWestBot.Program.Main(String[] args) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 54Erro 23/10/2021 23:18:37:
+OpenQA.Selenium.JavaScriptException: javascript error: Cannot read properties of undefined (reading 'el')
+  (Session info: chrome=95.0.4638.54)
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.ExecuteScriptCommand(String script, String commandName, Object[] args)
+   at OpenQA.Selenium.WebDriver.ExecuteScript(String script, Object[] args)
+   at TheWestBot.Program.DoJob(Job job) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 159
+   at TheWestBot.Program.FarmExp() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 98
+Erro 23/10/2021 23:19:47:
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:60543/session/bf9dcdc32089721b61c18375eba3038b/element/3d2f6122-bf75-45da-b627-df054e4bb6c9/click timed out after 60 seconds.
+ ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.IO.IOException: Unable to read data from the transport connection: A operação de E/S foi cancelada devido a uma saída do módulo ou a um pedido da aplicação..
+ ---> System.Net.Sockets.SocketException (995): A operação de E/S foi cancelada devido a uma saída do módulo ou a um pedido da aplicação.
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.MakeHttpRequest(HttpRequestInfo requestInfo)
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   --- End of inner exception stack trace ---
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.InternalExecute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebElement.Execute(String commandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebElement.Click()
+   at TheWestBot.Program.Login() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 175
+   at TheWestBot.Program.FarmExp() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 106
+   at TheWestBot.Program.Menu() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 70
+   at TheWestBot.Program.DoJob(Job job) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 160
+   at TheWestBot.Program.FarmExp() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 98
+Erro 24/10/2021 13:56:05:
+OpenQA.Selenium.WebDriverException: disconnected: unable to send message to renderer
+  (Session info: chrome=95.0.4638.54)
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.By.<.ctor>b__11_0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.WebDriver.FindElement(By by)
+   at TheWestBot.Program.IsElementPresent(By by) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 375
+   at TheWestBot.Program.NumberOfTasksInQeue() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 318
+   at TheWestBot.Program.DoJob(Job job) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 139
+   at TheWestBot.Program.FarmExp() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 98
+Erro 25/10/2021 02:03:51:
+OpenQA.Selenium.JavaScriptException: javascript error: missing ) after argument list
+  (Session info: chrome=95.0.4638.54)
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.ExecuteScriptCommand(String script, String commandName, Object[] args)
+   at OpenQA.Selenium.WebDriver.ExecuteScript(String script, Object[] args)
+   at TheWestBot.Program.UpdateJobs() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 191
+   at TheWestBot.Program.GetNextJob(List`1 jobs) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 304
+   at TheWestBot.Program.FarmExp() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 100
+Erro 25/10/2021 08:00:54:
+OpenQA.Selenium.WebDriverTimeoutException: timeout: Timed out receiving message from renderer: 300.000
+  (Session info: chrome=95.0.4638.54)
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.By.<.ctor>b__11_0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.WebDriver.FindElement(By by)
+   at TheWestBot.Program.IsElementPresent(By by) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 375
+   at TheWestBot.Program.NumberOfTasksInQeue() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 318
+   at TheWestBot.Program.DoJob(Job job) in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 139
+   at TheWestBot.Program.FarmExp() in D:\Bots\TheWest2\TheWestBot\OSMBot\Program.cs:line 98

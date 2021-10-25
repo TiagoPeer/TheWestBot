@@ -28,10 +28,14 @@ namespace TheWestBot
         static IWebDriver driver;
         static IJavaScriptExecutor js;
         static Random random;
+        static List<Job> jobs;
+        static int maxTimesToDoJob = 50;
+        static int maxDanger = 1;
+        static int minExperience = 20;
         static void Main(string[] args)
         {
 
-            List<Job> jobs = new List<Job>();
+            jobs = new List<Job>();
 
             random = new Random();
 
@@ -45,86 +49,170 @@ namespace TheWestBot
             driver = new ChromeDriver(options);
             js = (IJavaScriptExecutor)driver;
 
-            login();
+            InstallScripts();
+            Login();
+            jobs = GetFeatureJobs();
+            Menu();
+        }
 
+        public static void Menu()
+        {
+            System.Console.WriteLine("Escolha uma opção");
+            System.Console.WriteLine("1. Farmar EXP");
+            System.Console.WriteLine("2. Farmar Comércio");
+            System.Console.WriteLine("3. Atualizar Trabalhos");
+            System.Console.WriteLine("9. Sair");
+            var choise = Console.ReadLine();
 
-            //login
-            void login()
+            switch (choise)
+            {
+                case "1":
+                    FarmExp();
+                    break;
+                case "2":
+                    System.Console.WriteLine("Disponivel em breve!");
+                    Menu();
+                    break;
+                case "3":
+                    UpdateJobs();
+                    Menu();
+                    break;
+                case "9":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    System.Console.WriteLine("Opção inválida!");
+                    Menu();
+                    break;
+            }
+        }
+
+        public static void FarmExp()
+        {
+            var nextJob = GetNextJob(jobs);
+            System.Console.WriteLine("Presionar ESC para voltar ao menu");
+            while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
             {
                 try
                 {
-                    System.Threading.Thread.Sleep(random.Next(3000, 4000));
-                    driver.Navigate().GoToUrl("https://greasyfork.org/en/scripts/7226-tw-gold-jobs-finder-more-languages");
-                    System.Threading.Thread.Sleep(random.Next(3000, 4000));
-                    driver.FindElement(By.LinkText("Install this script")).Click();
-                    System.Threading.Thread.Sleep(random.Next(2000, 3000));
-                    Console.WriteLine("Instale o Script");
-                    Console.ReadLine();
-
-                    Console.WriteLine("--------------------");
-                    Console.WriteLine("A navegar para The West");
-                    driver.Navigate().GoToUrl("https://www.the-west.com.pt/");
-                    System.Threading.Thread.Sleep(random.Next(2000, 3000));
-                    driver.FindElement(By.Name("username")).Clear();
-                    driver.FindElement(By.Name("username")).SendKeys("plarika");
-                    driver.FindElement(By.Name("userpassword")).Clear();
-                    driver.FindElement(By.Name("userpassword")).SendKeys("plarika1");
-                    driver.FindElement(By.Name("userpassword")).SendKeys(Keys.Enter);
-                    System.Threading.Thread.Sleep(random.Next(2000, 3000));
-                    driver.FindElement(By.LinkText("Justice")).Click();
-                    System.Threading.Thread.Sleep(random.Next(3000, 4000));
-
-
-                    while (!driver.FindElement(By.ClassName("ui-loader-wrap")).GetAttribute("style").Contains("none"))
-                    {
-                        System.Threading.Thread.Sleep(random.Next(500, 1000));
-                    }
-
-                    Console.WriteLine("Acabou Loading");
-
-                    jobs = GetFeatureJobs();
-
-                    var nextJob = GetNextJob(jobs);
-
-                    while (true)
-                    {
-                        Console.WriteLine(nextJob.Name);
-                        Console.WriteLine(nextJob.Distance);
-                        Console.WriteLine(nextJob.Experience);
-                        //Equipar set velocidade
-
-                        //Ir para o trabalho
-
-                        //Equipar set XP
-                        js.ExecuteScript("EquipManager.switchEquip(950)");
-                        while (nextJob.TimesDone < 25)
-                        {
-                            if (GetPlayerEnergyPercentage() > 0)
-                            {
-                                if (NumberOfTasksInQeue() < 4)
-                                {
-                                    js.ExecuteScript($"TaskQueue.add(new TaskJob({nextJob.Id}, {nextJob.PosX}, {nextJob.PosY}, 15))");
-                                    nextJob.TimesDone++;
-                                    System.Threading.Thread.Sleep(random.Next(15000, 15500));
-                                }
-                            }
-                            else
-                            {
-                                while(NumberOfTasksInQeue() > 0)
-                                {
-                                    System.Threading.Thread.Sleep(random.Next(5000, 6000));
-                                }
-                                GoSleep();
-                            }
-                        }
-                        nextJob = GetNextJob(jobs);
-                    }
+                    DoJob(nextJob);
+                    //Check atual job and nearby before go to next job
+                    nextJob = GetNextJob(jobs);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Erro, ver ficheiro Log");
-                    System.IO.File.AppendAllTextAsync("log.txt", $"Erro {DateTime.Now}:{Environment.NewLine}{e.ToString()}");
+                    Console.WriteLine("Erro, ver ficheiro Log. A reinicar.");
+                    System.IO.File.AppendAllTextAsync("log.txt", $"Erro {DateTime.Now}:{Environment.NewLine}{e.ToString()}{Environment.NewLine}");
+                    Login();
+                    FarmExp();
                 }
+            }
+            Menu();
+        }
+
+        public static void InstallScripts()
+        {
+            System.Threading.Thread.Sleep(random.Next(3000, 4000));
+            driver.Navigate().GoToUrl("https://greasyfork.org/en/scripts/7226-tw-gold-jobs-finder-more-languages");
+            System.Threading.Thread.Sleep(random.Next(3000, 4000));
+            driver.FindElement(By.LinkText("Install this script")).Click();
+            System.Threading.Thread.Sleep(random.Next(2000, 3000));
+            Console.WriteLine("Instale o Script");
+            Console.ReadLine();
+        }
+
+        public static void DoJob(Job job)
+        {
+            Console.WriteLine(job.Name);
+            Console.WriteLine(job.Distance);
+            Console.WriteLine(job.Experience);
+            //Equipar set velocidade
+
+            //Ir para o trabalho
+
+            //Equipar set XP
+            //js.ExecuteScript("EquipManager.switchEquip(950)");
+            while (job.TimesDone < maxTimesToDoJob)
+            {
+                if (GetPlayerEnergyPercentage() > 0)
+                {
+                    if (NumberOfTasksInQeue() < 9)
+                    {
+                        js.ExecuteScript($"TaskQueue.add(new TaskJob({job.Id}, {job.PosX}, {job.PosY}, 15))");
+                        foreach (var jobInList in jobs.Where(j => j.Id == job.Id))
+                        {
+                            jobInList.TimesDone++;
+                        }
+                        System.Threading.Thread.Sleep(random.Next(14000, 15000));
+                    }
+                }
+                else
+                {
+                    while (NumberOfTasksInQeue() > 0)
+                    {
+                        System.Threading.Thread.Sleep(random.Next(5000, 6000));
+                    }
+                    GoSleep();
+                }
+            }
+            //js.ExecuteScript("TaskQueue.cancelAll()");
+            //Menu();
+        }
+
+        public static void Login()
+        {
+            Console.WriteLine("--------------------");
+            Console.WriteLine("A navegar para The West");
+            driver.Navigate().GoToUrl("https://www.the-west.com.pt/");
+            System.Threading.Thread.Sleep(random.Next(2000, 3000));
+            driver.FindElement(By.Name("username")).Clear();
+            driver.FindElement(By.Name("username")).SendKeys("plarika");
+            driver.FindElement(By.Name("userpassword")).Clear();
+            driver.FindElement(By.Name("userpassword")).SendKeys("plarika1");
+            driver.FindElement(By.Name("userpassword")).SendKeys(Keys.Enter);
+            System.Threading.Thread.Sleep(random.Next(2000, 3000));
+            driver.FindElement(By.LinkText("Kansas")).Click();
+            System.Threading.Thread.Sleep(random.Next(3000, 4000));
+
+
+            while (!driver.FindElement(By.ClassName("ui-loader-wrap")).GetAttribute("style").Contains("none"))
+            {
+                System.Threading.Thread.Sleep(random.Next(500, 1000));
+            }
+
+            Console.WriteLine("Acabou Loading");
+        }
+
+        public static void UpdateJobs()
+        {
+            foreach (var job in jobs)
+            {
+                var coords = $"x:{job.PosX},y:{job.PosY}";
+                js.ExecuteScript($"Map.JobHandler.openJob({job.Id},{coords})");
+
+                var jobInfoWindow = driver.FindElement(By.ClassName($"wjob-{job.Id}"));
+                while (!IsElementPresent(By.ClassName("job_rightSide")))
+                {
+                    System.Threading.Thread.Sleep(random.Next(100, 200));
+                }
+                var rightSideInfoWindow = jobInfoWindow.FindElement(By.ClassName("job_rightSide"));
+                var experience = "0";
+                var danger = 0;
+                var canDo = false;
+
+                if (IsElementPresent(By.ClassName("job_jobtimes")))
+                {
+                    danger = jobInfoWindow.FindElement(By.ClassName("job_dangerbox")).FindElement(By.ClassName("tw2gui_progresscircle")).FindElements(By.TagName("img")).Count;
+                    experience = jobInfoWindow.FindElement(By.ClassName("job_durationbar_short")).FindElement(By.ClassName("job_value_experience")).Text;
+                    canDo = true;
+                }
+
+                job.Experience = Int32.Parse(experience);
+                job.CanDo = canDo;
+                job.Danger = danger;
+                job.TimesDone = 0;
+
+                jobInfoWindow.FindElement(By.ClassName("tw2gui_window_buttons_close")).Click();
             }
         }
 
@@ -163,25 +251,30 @@ namespace TheWestBot
                 string jobPosX = JsAttribute.Split('(', ')')[1].Split('{', '}')[1].Split(',')[0].Replace("x", "").Replace(":", "");
                 string JobPosY = JsAttribute.Split('(', ')')[1].Split('{', '}')[1].Split(',')[1].Replace("y", "").Replace(":", "");
 
-                js.ExecuteScript(JsAttribute);
-                var jobInfoWindow = driver.FindElement(By.ClassName($"wjob-{jobNumber}"));
-                while (!IsElementPresent(By.ClassName("job_rightSide")))
-                {
-                    System.Threading.Thread.Sleep(random.Next(100, 200));
-                }
-                var rightSideInfoWindow = jobInfoWindow.FindElement(By.ClassName("job_rightSide"));
                 var experience = "0";
                 var danger = 0;
                 var canDo = false;
 
-                if (IsElementPresent(By.ClassName("job_jobtimes")))
+                if (!GoldJobRow.FindElement(By.ClassName("cell_3")).FindElement(By.ClassName("tw2gui_button")).GetAttribute("class").Contains("inactive"))
                 {
-                    danger = jobInfoWindow.FindElement(By.ClassName("job_dangerbox")).FindElement(By.ClassName("tw2gui_progresscircle")).FindElements(By.TagName("img")).Count;
-                    experience = jobInfoWindow.FindElement(By.ClassName("job_durationbar_short")).FindElement(By.ClassName("job_value_experience")).Text;
-                    canDo = true;
-                }
+                    js.ExecuteScript(JsAttribute);
+                    var jobInfoWindow = driver.FindElement(By.ClassName($"wjob-{jobNumber}"));
+                    while (!IsElementPresent(By.ClassName("job_rightSide")))
+                    {
+                        System.Threading.Thread.Sleep(random.Next(100, 200));
+                    }
+                    var rightSideInfoWindow = jobInfoWindow.FindElement(By.ClassName("job_rightSide"));
 
-                jobInfoWindow.FindElement(By.ClassName("tw2gui_window_buttons_close")).Click();
+
+                    if (IsElementPresent(By.ClassName("job_jobtimes")))
+                    {
+                        danger = jobInfoWindow.FindElement(By.ClassName("job_dangerbox")).FindElement(By.ClassName("tw2gui_progresscircle")).FindElements(By.TagName("img")).Count;
+                        experience = jobInfoWindow.FindElement(By.ClassName("job_durationbar_short")).FindElement(By.ClassName("job_value_experience")).Text;
+                        canDo = true;
+                    }
+
+                    jobInfoWindow.FindElement(By.ClassName("tw2gui_window_buttons_close")).Click();
+                }
 
                 job.Id = Int32.Parse(jobNumber);
                 job.PosX = Int32.Parse(jobPosX);
@@ -191,27 +284,32 @@ namespace TheWestBot
                 job.CanDo = canDo;
                 job.Danger = danger;
                 job.Name = js.ExecuteScript($"return JobList.getJobById({jobNumber}).name").ToString();
-                //job.Distance = double.Parse(js.ExecuteScript($"return Character.calcWayTo({jobPosX}, {JobPosY})").ToString());
                 job.Distance = 0;
 
-                if (job.Experience >= 40 && job.Danger <= 2)
+                if (job.Experience >= minExperience && job.Danger <= maxDanger)
                 {
                     featureJobs.Add(job);
                 }
 
             }
 
+            System.IO.File.AppendAllTextAsync("jobs.txt", $"Trabalhos {DateTime.Now}:{Environment.NewLine}{JsonConvert.SerializeObject(featureJobs, Formatting.Indented)}");
             return featureJobs;
         }
 
         public static Job GetNextJob(List<Job> jobs)
         {
-            foreach (var job in jobs.Where(j => j.TimesDone < 25))
+            if (!jobs.Where(j => j.TimesDone < maxTimesToDoJob).Any())
+            {
+                UpdateJobs();
+            }
+
+            foreach (var job in jobs.Where(j => j.TimesDone < maxTimesToDoJob))
             {
                 var distance = double.Parse(js.ExecuteScript($"return Character.calcWayTo({job.PosX}, {job.PosY})").ToString());
                 job.Distance = distance;
             }
-            return jobs.Where(j => j.TimesDone < 25).OrderBy(j => j.Distance).FirstOrDefault();
+            return jobs.Where(j => j.TimesDone < maxTimesToDoJob).OrderBy(j => j.Distance).FirstOrDefault();
         }
 
         public static int NumberOfTasksInQeue()
@@ -238,9 +336,12 @@ namespace TheWestBot
             //Character.homeTown - Info sobre a cidade - obter CityId para usar no Hotel
             //HotelWindow.open(cityId) - abrir janela hotel
             //HotelWindow.start("luxurious_apartment")
+
+            //var rooms = ['cubby', 'bedroom', 'hotel_room', 'apartment', 'luxurious_apartment'];
+
             js.ExecuteScript("EquipManager.switchEquip(838)");
-            js.ExecuteScript("HotelWindow.open(2568)");
-            js.ExecuteScript("HotelWindow.start(\"luxurious_apartment\")");
+            js.ExecuteScript("HotelWindow.open(3158)");
+            js.ExecuteScript("HotelWindow.start(\"cubby\")");
             while (GetPlayerEnergyPercentage() < 95)
             {
                 System.Threading.Thread.Sleep(120000);
